@@ -15,8 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from users.models import User
+from django.http import HttpResponse
+
+
+def profile_view(request): #after logging in allauth redirects to accounts/profile/ so creating a view for it for convinience sake
+	return HttpResponse("Welcome %s" %request.user)
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
+    path('accounts/profile/', profile_view), #as after logging in allauth by default redirects to accounts/profile/
 ]

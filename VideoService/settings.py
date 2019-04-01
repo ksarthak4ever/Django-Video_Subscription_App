@@ -50,7 +50,6 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     #the social providers
-    'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.google',
 ]
 
