@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     #the social providers
     'allauth.socialaccount.providers.google',
+    'memberships',
 ]
 
 MIDDLEWARE = [
@@ -143,3 +144,12 @@ ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
+
+''' static file settings '''
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') #declaring static root which is where our static files will be stored
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR,'static'),
+    )
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR,'static','media')

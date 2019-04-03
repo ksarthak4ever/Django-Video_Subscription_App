@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 from users.models import User
 from django.http import HttpResponse
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 def profile_view(request): #after logging in allauth redirects to accounts/profile/ so creating a view for it for convinience sake
@@ -28,3 +30,8 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('accounts/profile/', profile_view), #as after logging in allauth by default redirects to accounts/profile/
 ]
+
+
+if settings.DEBUG: #mapping static and media url when debug is enabled 
+    urlpatterns += static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
