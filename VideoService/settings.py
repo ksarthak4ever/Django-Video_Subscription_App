@@ -153,3 +153,13 @@ STATICFILES_DIRS = (
     )
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR,'static','media')
+
+'''Stripe settings '''
+
+if DEBUG:
+    STRIPE_PUBLISHABLE_KEY = 'pk_test_FxqJcM5pDsQYvjqvomn1HTO3'
+    STRIPE_SECRET_KEY = 'sk_test_raf6Azr4OiG3htCp5SCYpYO6'
+
+else: #i.e live keys if i were to push project on any server
+    STRIPE_PUBLISHABLE_KEY = ''
+    STRIPE_SECRET_KEY = ''
